@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>小憩之地</title>
+  <subtitle>特立独行 偏安一隅</subtitle>
+  <link href="/rss.xml" rel="self"/>
+  
+  <link href="http://nerd-is.in/"/>
+  <updated>2017-03-12T15:01:22.000Z</updated>
+  <id>http://nerd-is.in/</id>
+  
+  <author>
+    <name>Loong_T</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>dagger.android——Android 中使用 Dagger2 的新方法</title>
+    <link href="http://nerd-is.in/2017/03/12/dagger-android%E2%80%94%E2%80%94Android-%E4%B8%AD%E4%BD%BF%E7%94%A8-Dagger2-%E7%9A%84%E6%96%B0%E6%96%B9%E6%B3%95/"/>
+    <id>http://nerd-is.in/2017/03/12/dagger-android——Android-中使用-Dagger2-的新方法/</id>
+    <published>2017-03-12T15:01:22.000Z</published>
+    <updated>2017-03-12T15:01:22.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;不打算讲解 Dagger2 的基础知识。&lt;/p&gt;
+&lt;p&gt;原先在 Android 项目中使用 Dagger2，准备好了 Component 和 Module 之后，在 Activity 或者 Fragment 里大概是这么使用的：&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Android" scheme="http://nerd-is.in/tags/Android/"/>
+    
+      <category term="Dagger" scheme="http://nerd-is.in/tags/Dagger/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>迁移博客到 GitHub Pages</title>
+    <link href="http://nerd-is.in/2017/02/19/%E8%BF%81%E7%A7%BB%E5%8D%9A%E5%AE%A2%E5%88%B0-GitHub-Pages/"/>
+    <id>http://nerd-is.in/2017/02/19/迁移博客到-GitHub-Pages/</id>
+    <published>2017-02-19T08:39:36.000Z</published>
+    <updated>2017-07-09T08:42:01.458Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最近补了一下 Web 方面的知识，心想着就顺带把博客重新鼓捣一下。&lt;/p&gt;
+&lt;p&gt;以前的博客——很久没更新了——是租了个便宜的虚拟主机，用 WordPress 搭的。并不懂 PHP，而且一段时间里也应该不会去学。如果我自己想要搞点自己想要的主题，实际练习一下自己的 Web 技术，会比较困难。付费也挺麻烦的，干脆就把这一个月几块钱也省了算了。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="blog" scheme="http://nerd-is.in/tags/blog/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>读《离水之鱼》</title>
+    <link href="http://nerd-is.in/2015/05/11/%E8%AF%BB%E3%80%8A%E7%A6%BB%E6%B0%B4%E4%B9%8B%E9%B1%BC%E3%80%8B/"/>
+    <id>http://nerd-is.in/2015/05/11/读《离水之鱼》/</id>
+    <published>2015-05-10T16:00:00.000Z</published>
+    <updated>2017-02-23T10:41:25.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;a href=&quot;http://book.douban.com/subject/10773372/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;《离水之鱼》&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;个人评价：2 星。&lt;/p&gt;
+&lt;p&gt;并没有读完，过程中就感到有很多问题，想着这真是本鸡汤的反面示范。有了些想法后，就觉得是能够用来写点什么的。于是准备写个读后感，在准备阶段发觉，细看这本书更是糟糕。&lt;/p&gt;
+&lt;p&gt;尽量写一些个人对于鸡汤类型文字的想法。虽然每次深入去思考这些糟糕的鸡汤也会有所收获——主要是指为什么糟糕这方面，但相当耗费时间，并不值得这样的投入。所以最好这篇读后感能成为糟糕鸡汤文的最后一篇感想。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="读书" scheme="http://nerd-is.in/tags/%E8%AF%BB%E4%B9%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>在 SwipeRefreshLayout 中加入多个子 View</title>
+    <link href="http://nerd-is.in/2014/09/29/%E5%9C%A8%20SwipeRefreshLayout%20%E4%B8%AD%E5%8A%A0%E5%85%A5%E5%A4%9A%E4%B8%AA%E5%AD%90%20View/"/>
+    <id>http://nerd-is.in/2014/09/29/在 SwipeRefreshLayout 中加入多个子 View/</id>
+    <published>2014-09-28T16:00:00.000Z</published>
+    <updated>2017-02-23T09:43:56.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;2017-02-23 更新：旧文搬运。&lt;/p&gt;
+&lt;p&gt;SwipeRefreshLayout 是由官方提供的下拉刷新 Widget。最低在 v4 中可用。最近使用了一下，发现虽然是官方出品，但也还是不够理想。&lt;/p&gt;
+&lt;p&gt;原先尝试使用了 Android L 中提供的新支持库 RecyclerView，彼此之间的兼容性就不够好。（RecyclerView 在那是也是新库，bug 多多，现在当然没有这种情况了。）&lt;/p&gt;
+&lt;p&gt;后来因为需要实现滑动到底部自动加载更多数据的功能，把 RecyclerView 换回了 ListView。在打算添加 &lt;a href=&quot;https://github.com/makovkastar/FloatingActionButton&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;FloatingActionButton&lt;/a&gt; 在同一画面上时，发现 SwipeRefreshLayout 不够方便。根据 FloatingActionButton 这个库的说明，需要将 FloatingActionButton 与 ListView 放在同一 ViewGroup 下。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Android" scheme="http://nerd-is.in/tags/Android/"/>
+    
+      <category term="View" scheme="http://nerd-is.in/tags/View/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Android 中的 Task 和  Back stack</title>
+    <link href="http://nerd-is.in/2013/08/19/Android-%E4%B8%AD%E7%9A%84-Task-%E5%92%8C-Back-stack/"/>
+    <id>http://nerd-is.in/2013/08/19/Android-中的-Task-和-Back-stack/</id>
+    <published>2013-08-18T16:00:00.000Z</published>
+    <updated>2017-02-20T08:16:41.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;2017-02-20 更新：旧文搬运。内容很浅显，但这部分内容实际上是需要好好掌握的，等以后会再充实一下。&lt;/p&gt;
+&lt;p&gt;在近来做的实战项目中，终于涉及到了这个方面的内容，那就趁机学一学用一用。&lt;/p&gt;
+&lt;p&gt;事实上，这方面的内容并不难理解，但是总让我感觉不知该怎么用才好。这里也就只能列一列几种模式，至于相应的解决方法，还是需要自己去琢磨试验。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Android" scheme="http://nerd-is.in/tags/Android/"/>
+    
+      <category term="Task" scheme="http://nerd-is.in/tags/Task/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用 EasyBCD 引导 CentOS</title>
+    <link href="http://nerd-is.in/2013/03/09/%E4%BD%BF%E7%94%A8-EasyBCD-%E5%BC%95%E5%AF%BC-CentOS/"/>
+    <id>http://nerd-is.in/2013/03/09/使用-EasyBCD-引导-CentOS/</id>
+    <published>2013-03-08T16:00:00.000Z</published>
+    <updated>2017-02-20T07:38:51.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;2017-02-20 更新：旧文搬运、修缮。我记得 Win8 开始，使用了比较棘手的引导系统，不知现在这方法是否还有效。&lt;/p&gt;
+&lt;p&gt;昨晚重启后忽然进不了 Windows，各种搜索加各种尝试后依旧无果，不得已只能使用 PE 修复 MBR 的引导。&lt;/p&gt;
+&lt;p&gt;这个办法是我尽力避免的，因为修复后会把 GRUB 覆盖掉，那么我就无法进入 Linux 系统了。这之后修复 Linux 的引导又是一番额外功夫。以前也算是碰见过类似的问题，当时用了 EasyBCD 这个软件来引导系统，所以这一次也立马想到了这个软件。不过还是碰见了不少问题，一上午才真正解决了这个问题。经验难得，需要记录一下。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="http://nerd-is.in/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CentOS 与 Ubuntu 下安装 NVIDIA 驱动</title>
+    <link href="http://nerd-is.in/2013/03/07/CentOS-%E4%B8%8E-Ubuntu-%E4%B8%8B%E5%AE%89%E8%A3%85-NVIDIA-%E9%A9%B1%E5%8A%A8/"/>
+    <id>http://nerd-is.in/2013/03/07/CentOS-与-Ubuntu-下安装-NVIDIA-驱动/</id>
+    <published>2013-03-06T16:00:00.000Z</published>
+    <updated>2017-02-20T04:59:34.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;2017-02-20 更新：旧文搬运，略加修缮，觉得还实用，所以保留下来。&lt;br&gt;2013-08-29 更新：Ubuntu 下安装方法，详见最下。&lt;/p&gt;
+&lt;p&gt;NVIDIA 驱动安装的重点在于关闭系统本身默认运行的 nouveau 模块。&lt;/p&gt;
+&lt;p&gt;首先上参考文章吧。&lt;a href=&quot;http://enetq.blog.51cto.com/479739/591622&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;文章一&lt;/a&gt;还有&lt;a href=&quot;http://www.ideasr.com/thread-33171-1-1.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;文章二&lt;/a&gt;。两篇文章的方法略有不同，我综合了一下。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="http://nerd-is.in/tags/Linux/"/>
+    
+  </entry>
+  
+</feed>
