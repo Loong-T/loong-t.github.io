@@ -5,7 +5,7 @@
   <link href="/rss.xml" rel="self"/>
   
   <link href="http://nerd-is.in/"/>
-  <updated>2017-07-14T16:00:00.000Z</updated>
+  <updated>2017-07-16T13:34:08.529Z</updated>
   <id>http://nerd-is.in/</id>
   
   <author>
@@ -14,6 +14,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ZXing Android Embedded 的使用以及自定义布局</title>
+    <link href="http://nerd-is.in/2017/07/16/ZXing-Android-Embedded-%E7%9A%84%E4%BD%BF%E7%94%A8%E4%BB%A5%E5%8F%8A%E8%87%AA%E5%AE%9A%E4%B9%89%E5%B8%83%E5%B1%80/"/>
+    <id>http://nerd-is.in/2017/07/16/ZXing-Android-Embedded-的使用以及自定义布局/</id>
+    <published>2017-07-16T04:49:31.000Z</published>
+    <updated>2017-07-16T13:34:08.529Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;想做个扫描条形码的功能，第一想到的就是 &lt;a href=&quot;https://github.com/zxing/zxing/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;ZXing&lt;/a&gt; 了。ZXing 的功能很强大，通常不需要完整把整个库都作为依赖放进应用里，而是分离出功能所需要的一部分。这类的文章、库还挺多的，这次看上的是 &lt;a href=&quot;https://github.com/journeyapps/zxing-android-embedded&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;ZXing Android Embedded&lt;/a&gt;，大体上满足了我的需要。然而这个库也算是继承了 ZXing 的传统，文档不全面。这里稍微写一下使用的方法，并且对 ViewfinderView 的布局进行一定的改进。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Android" scheme="http://nerd-is.in/tags/Android/"/>
+    
+      <category term="ZXing" scheme="http://nerd-is.in/tags/ZXing/"/>
+    
+      <category term="扫码" scheme="http://nerd-is.in/tags/%E6%89%AB%E7%A0%81/"/>
+    
+  </entry>
   
   <entry>
     <title>dagger.android——Android 中使用 Dagger2 的新方法</title>

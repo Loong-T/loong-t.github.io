@@ -3,6 +3,51 @@
   
     
     <entry>
+      <title><![CDATA[ZXing Android Embedded 的使用以及自定义布局]]></title>
+      <url>/2017/07/16/ZXing-Android-Embedded-%E7%9A%84%E4%BD%BF%E7%94%A8%E4%BB%A5%E5%8F%8A%E8%87%AA%E5%AE%9A%E4%B9%89%E5%B8%83%E5%B1%80/</url>
+      <content type="html"><![CDATA[<p>想做个扫描条形码的功能，第一想到的就是 <a href="https://github.com/zxing/zxing/" target="_blank" rel="external">ZXing</a> 了。ZXing 的功能很强大，通常不需要完整把整个库都作为依赖放进应用里，而是分离出功能所需要的一部分。这类的文章、库还挺多的，这次看上的是 <a href="https://github.com/journeyapps/zxing-android-embedded" target="_blank" rel="external">ZXing Android Embedded</a>，大体上满足了我的需要。然而这个库也算是继承了 ZXing 的传统，文档不全面。这里稍微写一下使用的方法，并且对 ViewfinderView 的布局进行一定的改进。</p>
+<a id="more"></a>
+<h1 id="关键-View-的介绍"><a href="#关键-View-的介绍" class="headerlink" title="关键 View 的介绍"></a>关键 View 的介绍</h1><p>恕我不再介绍 <code>IntentIntegrator</code> 或者是 <code>DecoratedBarcodeView</code> 的用法，这可以在文档和示例中找到用法。</p>
+<p><img src="/uploads/blog_pics/zxing-android-embadded-pic-1.png" alt="ZXing android embedded pic"></p>
+<p>搭配官方示例的图来介绍下几个比较关键的 View。事实上并没有什么难点，但因为文档不全面，需要试过才能实际知道相关的内容。</p>
+<p>图中的内容很简单，就是一个 DecoratedBarcodeView，而这个 View 实际上是由 BarcodeView、ViewfinderView 和一个 TextView 组合而成的。TextView 显示了底部的文字。ViewfinderView 绘制了周边半透明的黑色遮罩，中间的红线，扫描时出现的黄点，以及扫描成功后的结果。BarcodeView 负责调用相机进行扫描，并且也负责绘制相机拍到的内容，也就是被 ViewfinderView 覆盖在下面的内容。</p>
+<p>假如，你想要的功能只是单纯地扫描，你只需要 BarcodeView。那么来看看 BarcodeView 怎么使用。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">com.journeyapps.barcodescanner.BarcodeView</span></span></div><div class="line">    <span class="attr">android:id</span>=<span class="string">"@+id/zxing_barcode_surface"</span></div><div class="line">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">    <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></div><div class="line">    <span class="attr">app:zxing_framing_rect_width</span>=<span class="string">"220dp"</span></div><div class="line">    <span class="attr">app:zxing_framing_rect_height</span>=<span class="string">"220dp"</span>/&gt;</div></pre></td></tr></table></figure>
+<p>可以看到有两个自定义的属性，指定了扫描区域的大小。这个扫描区域，就是上图中，没有被半透明遮罩盖住的部分。前面也说了，黑色遮罩实际上是由 ViewfinderView 绘制的。所以在单用 BarcodeView 时，是“看”不出来这两个属性的作用的。但有实际的效果，比如会影响到可能的点的坐标、扫描结果得到的 Bitmap。</p>
+<p>进行扫描也很简单：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">barcodeView.decodeSingle(<span class="keyword">new</span> BarcodeCallback() &#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">barcodeResult</span><span class="params">(BarcodeResult result)</span> </span>&#123;</div><div class="line">        textView.setText(<span class="string">"Scan result: "</span> + result.getText());</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">possibleResultPoints</span><span class="params">(List&lt;ResultPoint&gt; resultPoints)</span> </span>&#123;</div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>上面的代码就进行了单次的扫描，<code>barcodeResult</code> 方法将会在扫描成功后被调用，得到扫描的结果。BarcodeResult 比较常用的是 <code>getText()</code> 和 <code>getBitmap()</code>，分别获取扫描的文字结果以及扫描成功时的图像。除了单次扫描，还有 <code>decodeContinuous(BarcodeCallback)</code> 方法，可以连续扫描多次，使用上大同小异。</p>
+<p><code>possibleResultPoints()</code> 方法将会传递一些跟扫描有关的点的信息，通常是给 ViewfinderView 使用的。在上图中有一个小黄点，也就是这个方法里得到的。</p>
+<p>除了上面提到的方法外，BarcodeView 还有 <code>pause()</code> 和 <code>resume()</code> 方法。见到这个名字大概就明白什么作用了。由于 BarcodeView 使用了相机，并且解析工作也有相当的计算量，所以在生命周期中需要调用这两个方法。从视觉的效果上来说，<code>pause()</code> 方法将会停止整个 view 对于相机拍摄内容的不断重绘，所以当你觉得需要固定 BarcodeView 显示的内容时，也可以调用这个方法。</p>
+<p>然后强调一下：<strong>使用 BarcodeView 前，记得请求相机权限</strong>。</p>
+<p>再来说说 ViewfinderView。ViewfinderView 本身没啥功能，主要提供 UI 上的辅助，给用户留下“我有在好好扫描啦”的印象。能够自定义遮罩、可能点、横线的颜色。通过 <code>setCamearaView()</code> 方法关联 BarcodeView，使得 ViewfinderView 能够获取到扫描区域的大小。</p>
+<p><code>drawResultBitmap()</code> 方法可以将指定的 Bitmap 绘制在非遮罩的区域，有一个半透明的效果，并且停止横线和点的绘制。通常配合 BarcodeResult 使用。与之对应的，还有一个 <code>drawViewfinder()</code> 方法：清除掉 Bitmap 重新开始画跳动的横线。</p>
+<h1 id="还有什么？"><a href="#还有什么？" class="headerlink" title="还有什么？"></a>还有什么？</h1><p>说真的，使用 ZXing Android Embedded 来将扫描功能集成到应用里可说是非常容易。但是——但是，想要进行自定义的布局却是相当困难。</p>
+<p>记得前面提到的 BarcodeView 的扫描区域吗？我们看不到，但它实际存在着并且发挥着作用。我们能够指定它的大小，但是，我们不能指定它的位置。这个扫描区域永远是在 BarcodeView 的正中间的！</p>
+<p>虽然 BarcodeView 的扫描区域是看不见的，但 ViewfinderView 的非遮罩区域却是实际可见的。假如想要把这个区域移动一下位置，该怎么办？</p>
+<p>我鼓捣了一阵子，重新写了个 ViewfinderView，总体来说能够满足我个人的布局要求了。但还有比较明显的缺陷，因为没有修改 CameraView，所以对扫描区域实际上没有改动。导致得到的扫描结果，跟画面上的区域会不一致。如果不使用 <code>drawResultBitmap()</code> 方法的话，显示上就没有太大的问题。如果自定义的区域偏离中心区域太远的话，不建议使用，因为可能会出现扫描不准的情况。由于时间上不允许，暂时只能做出这样的妥协，只能将来有机会的时候再更深入定制了。那样的话，说不定直接在 ZXing 的基础上进行修改还更方便。</p>
+<p>添加了 <code>vfv_frameGravity</code> 的属性，可以指定非遮罩区域（也就是视觉上的扫描区域）的位置，有 center、centerHorizontal 和 centerVertical 三个值可选。同时将 paddingTop 和 paddingLeft 加入到布局的计算中。这两者之间，frameGravity 优先于 padding。</p>
+<p><img src="/uploads/blog_pics/configrable-viewfinderview-pic.png" alt="configrable viewfinderview pic"></p>
+<p>举例来说，上图的效果设置了 centerHorizontal 进行水平居中，此时如果再设置 paddingLeft 是不会起作用的。在垂直方向上，是通过 paddingTop 设置了 110dp。</p>
+<p>我重写的 ViewfinderView 项目在[这儿][configurable-viewfindderview]，里面附带了示例。可以通过 <a href="https://jitpack.io/" target="_blank" rel="external">Jitpack</a> 来使用：</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">allprojects &#123;</div><div class="line">    repositories &#123;</div><div class="line">        ...</div><div class="line">        maven &#123; url <span class="string">'https://jitpack.io'</span> &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">compile <span class="string">'com.github.loong-t:configurable-viewfinderview:1.0.0'</span></div></pre></td></tr></table></figure>
+<p>现在对这个 View 的功能还不是很满意，只能是供参考的程度。</p>
+]]></content>
+      
+        
+        <tags>
+            
+            <tag> Android </tag>
+            
+            <tag> ZXing </tag>
+            
+            <tag> 扫码 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[dagger.android——Android 中使用 Dagger2 的新方法]]></title>
       <url>/2017/07/09/dagger-android%E2%80%94%E2%80%94Android-%E4%B8%AD%E4%BD%BF%E7%94%A8-Dagger2-%E7%9A%84%E6%96%B0%E6%96%B9%E6%B3%95/</url>
       <content type="html"><![CDATA[<p>不打算讲解 Dagger2 的基础知识。</p>
