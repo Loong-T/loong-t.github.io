@@ -5,7 +5,7 @@
   <link href="/rss.xml" rel="self"/>
   
   <link href="http://nerd-is.in/"/>
-  <updated>2017-07-16T13:34:08.529Z</updated>
+  <updated>2017-07-17T05:39:08.578Z</updated>
   <id>http://nerd-is.in/</id>
   
   <author>
@@ -14,6 +14,41 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>分享两个颜色资源文件</title>
+    <link href="http://nerd-is.in/2017/07/17/%E5%88%86%E4%BA%AB%E4%B8%A4%E4%B8%AA%E9%A2%9C%E8%89%B2%E8%B5%84%E6%BA%90%E6%96%87%E4%BB%B6/"/>
+    <id>http://nerd-is.in/2017/07/17/分享两个颜色资源文件/</id>
+    <published>2017-07-17T04:01:53.000Z</published>
+    <updated>2017-07-17T05:39:08.578Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;当初看到 Material Design 那个 48 秒的&lt;a href=&quot;https://www.youtube.com/watch?v=Q8TXgCzxEnw&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;视频&lt;/a&gt;的时候，我心里就有声音在大喊：“就是这个！我想要的就是这种设计！”&lt;/p&gt;
+&lt;p&gt;迄今已有三年多，MD 得到了不错的推广。然而能让我眼前一亮的设计却是寥寥。大量的应用纯粹套了一个 MD 的皮，用着提供的标准控件，但没有更为深入地去设计，显得非常枯燥干瘪。这种时候 MD 反而成了累赘。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Android" scheme="http://nerd-is.in/tags/Android/"/>
+    
+      <category term="Resource" scheme="http://nerd-is.in/tags/Resource/"/>
+    
+      <category term="Color" scheme="http://nerd-is.in/tags/Color/"/>
+    
+      <category term="Design" scheme="http://nerd-is.in/tags/Design/"/>
+    
+      <category term="Material Design" scheme="http://nerd-is.in/tags/Material-Design/"/>
+    
+      <category term="分享" scheme="http://nerd-is.in/tags/%E5%88%86%E4%BA%AB/"/>
+    
+      <category term="资源" scheme="http://nerd-is.in/tags/%E8%B5%84%E6%BA%90/"/>
+    
+      <category term="颜色" scheme="http://nerd-is.in/tags/%E9%A2%9C%E8%89%B2/"/>
+    
+      <category term="设计" scheme="http://nerd-is.in/tags/%E8%AE%BE%E8%AE%A1/"/>
+    
+  </entry>
   
   <entry>
     <title>ZXing Android Embedded 的使用以及自定义布局</title>
@@ -67,7 +102,7 @@
     <link href="http://nerd-is.in/2017/02/19/%E8%BF%81%E7%A7%BB%E5%8D%9A%E5%AE%A2%E5%88%B0-GitHub-Pages/"/>
     <id>http://nerd-is.in/2017/02/19/迁移博客到-GitHub-Pages/</id>
     <published>2017-02-19T08:39:36.000Z</published>
-    <updated>2017-07-09T08:42:01.458Z</updated>
+    <updated>2017-07-17T04:02:35.049Z</updated>
     
     <summary type="html">
     
@@ -77,7 +112,7 @@
     </summary>
     
     
-      <category term="blog" scheme="http://nerd-is.in/tags/blog/"/>
+      <category term="Blog" scheme="http://nerd-is.in/tags/Blog/"/>
     
   </entry>
   
