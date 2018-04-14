@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>小憩之地</title>
+  
   <subtitle>特立独行 偏安一隅</subtitle>
   <link href="/rss.xml" rel="self"/>
   
@@ -24,7 +25,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;当初看到 Material Design 那个 48 秒的&lt;a href=&quot;https://www.youtube.com/watch?v=Q8TXgCzxEnw&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;视频&lt;/a&gt;的时候，我心里就有声音在大喊：“就是这个！我想要的就是这种设计！”&lt;/p&gt;
+      &lt;p&gt;当初看到 Material Design 那个 48 秒的&lt;a href=&quot;https://www.youtube.com/watch?v=Q8TXgCzxEnw&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;视频&lt;/a&gt;的时候，我心里就有声音在大喊：“就是这个！我想要的就是这种设计！”&lt;/p&gt;
 &lt;p&gt;迄今已有三年多，MD 得到了不错的推广。然而能让我眼前一亮的设计却是寥寥。大量的应用纯粹套了一个 MD 的皮，用着提供的标准控件，但没有更为深入地去设计，显得非常枯燥干瘪。这种时候 MD 反而成了累赘。&lt;/p&gt;
     
     </summary>
@@ -59,7 +60,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;想做个扫描条形码的功能，第一想到的就是 &lt;a href=&quot;https://github.com/zxing/zxing/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;ZXing&lt;/a&gt; 了。ZXing 的功能很强大，通常不需要完整把整个库都作为依赖放进应用里，而是分离出功能所需要的一部分。这类的文章、库还挺多的，这次看上的是 &lt;a href=&quot;https://github.com/journeyapps/zxing-android-embedded&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;ZXing Android Embedded&lt;/a&gt;，大体上满足了我的需要。然而这个库也算是继承了 ZXing 的传统，文档不全面。这里稍微写一下使用的方法，并且对 ViewfinderView 的布局进行一定的改进。&lt;/p&gt;
+      &lt;p&gt;想做个扫描条形码的功能，第一想到的就是 &lt;a href=&quot;https://github.com/zxing/zxing/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;ZXing&lt;/a&gt; 了。ZXing 的功能很强大，通常不需要完整把整个库都作为依赖放进应用里，而是分离出功能所需要的一部分。这类的文章、库还挺多的，这次看上的是 &lt;a href=&quot;https://github.com/journeyapps/zxing-android-embedded&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;ZXing Android Embedded&lt;/a&gt;，大体上满足了我的需要。然而这个库也算是继承了 ZXing 的传统，文档不全面。这里稍微写一下使用的方法，并且对 ViewfinderView 的布局进行一定的改进。&lt;/p&gt;
     
     </summary>
     
@@ -125,7 +126,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;&lt;a href=&quot;http://book.douban.com/subject/10773372/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;《离水之鱼》&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;&lt;a href=&quot;http://book.douban.com/subject/10773372/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;《离水之鱼》&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;个人评价：2 星。&lt;/p&gt;
 &lt;p&gt;并没有读完，过程中就感到有很多问题，想着这真是本鸡汤的反面示范。有了些想法后，就觉得是能够用来写点什么的。于是准备写个读后感，在准备阶段发觉，细看这本书更是糟糕。&lt;/p&gt;
 &lt;p&gt;尽量写一些个人对于鸡汤类型文字的想法。虽然每次深入去思考这些糟糕的鸡汤也会有所收获——主要是指为什么糟糕这方面，但相当耗费时间，并不值得这样的投入。所以最好这篇读后感能成为糟糕鸡汤文的最后一篇感想。&lt;/p&gt;
@@ -149,7 +150,7 @@
       &lt;p&gt;2017-02-23 更新：旧文搬运。&lt;/p&gt;
 &lt;p&gt;SwipeRefreshLayout 是由官方提供的下拉刷新 Widget。最低在 v4 中可用。最近使用了一下，发现虽然是官方出品，但也还是不够理想。&lt;/p&gt;
 &lt;p&gt;原先尝试使用了 Android L 中提供的新支持库 RecyclerView，彼此之间的兼容性就不够好。（RecyclerView 在那是也是新库，bug 多多，现在当然没有这种情况了。）&lt;/p&gt;
-&lt;p&gt;后来因为需要实现滑动到底部自动加载更多数据的功能，把 RecyclerView 换回了 ListView。在打算添加 &lt;a href=&quot;https://github.com/makovkastar/FloatingActionButton&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;FloatingActionButton&lt;/a&gt; 在同一画面上时，发现 SwipeRefreshLayout 不够方便。根据 FloatingActionButton 这个库的说明，需要将 FloatingActionButton 与 ListView 放在同一 ViewGroup 下。&lt;/p&gt;
+&lt;p&gt;后来因为需要实现滑动到底部自动加载更多数据的功能，把 RecyclerView 换回了 ListView。在打算添加 &lt;a href=&quot;https://github.com/makovkastar/FloatingActionButton&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;FloatingActionButton&lt;/a&gt; 在同一画面上时，发现 SwipeRefreshLayout 不够方便。根据 FloatingActionButton 这个库的说明，需要将 FloatingActionButton 与 ListView 放在同一 ViewGroup 下。&lt;/p&gt;
     
     </summary>
     
@@ -213,7 +214,7 @@
     
       &lt;p&gt;2017-02-20 更新：旧文搬运，略加修缮，觉得还实用，所以保留下来。&lt;br&gt;2013-08-29 更新：Ubuntu 下安装方法，详见最下。&lt;/p&gt;
 &lt;p&gt;NVIDIA 驱动安装的重点在于关闭系统本身默认运行的 nouveau 模块。&lt;/p&gt;
-&lt;p&gt;首先上参考文章吧。&lt;a href=&quot;http://enetq.blog.51cto.com/479739/591622&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;文章一&lt;/a&gt;还有&lt;a href=&quot;http://www.ideasr.com/thread-33171-1-1.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;文章二&lt;/a&gt;。两篇文章的方法略有不同，我综合了一下。&lt;/p&gt;
+&lt;p&gt;首先上参考文章吧。&lt;a href=&quot;http://enetq.blog.51cto.com/479739/591622&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;文章一&lt;/a&gt;还有&lt;a href=&quot;http://www.ideasr.com/thread-33171-1-1.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;文章二&lt;/a&gt;。两篇文章的方法略有不同，我综合了一下。&lt;/p&gt;
     
     </summary>
     
