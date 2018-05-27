@@ -10,12 +10,12 @@
 <p>用户开始一个新的 task 时，原来的 task 可以被移到后台，其中的所有 activity 都会停止，但回退栈保持完整。并且用户此时可以回到原来的 task，比如通过选择最近应用，或者是在主页再次点击开始那个应用。</p>
 <p>需要注意的是，当运行了太多的 task 时，系统会开始销毁后台的 activity。被销毁的 activity 的状态将会丢失，但是 task 的回退栈不会丢失。</p>
 <p>如果一个 activity 能在多个 activity 中被打开，由于回退栈不能被重新排序，此时这个回退栈中会出现这个 activity 的多个实例，甚至在多个 task 中被实例化多次。这时候再点击返回键，还是依旧将这些 activity 依次弹出，并且各自有各自的状态。如果不想 activity 被实例化多次，可以对这种行为进行更改。</p>
-<h1 id="定义启动模式"><a href="#定义启动模式" class="headerlink" title="定义启动模式"></a>定义启动模式</h1><p>启动模式允许你定义新的 activity 实例与当前 task 的关系。有两种定义方法：</p>
+<h2 id="定义启动模式"><a href="#定义启动模式" class="headerlink" title="定义启动模式"></a>定义启动模式</h2><p>启动模式允许你定义新的 activity 实例与当前 task 的关系。有两种定义方法：</p>
 <ol>
 <li>使用 manifest 文件</li>
 <li>使用 Intent 的 flags</li>
 </ol>
-<p><activity> 中可使用的属性：</activity></p>
+<p><code>&lt;activity&gt;</code> 中可使用的属性：</p>
 <ul>
 <li>taskAffinity</li>
 <li>launchMode</li>
@@ -31,14 +31,14 @@
 <li>FLAG_ACTIVITY_SINGLE_TOP</li>
 </ul>
 <p>Intent 的 flags 方式优先于 manifest，但是，两个方式不能等同。某些效果只能通过在 manifest 中定义的启动模式实现，不能通过 flags 实现；反之亦然。</p>
-<h2 id="使用-manifest-文件"><a href="#使用-manifest-文件" class="headerlink" title="使用 manifest 文件"></a>使用 manifest 文件</h2><p>使用 <activity> 元素中的 launchMode 属性。launchMode 属性可设为四种启动模式：</activity></p>
+<h3 id="使用-manifest-文件"><a href="#使用-manifest-文件" class="headerlink" title="使用 manifest 文件"></a>使用 manifest 文件</h3><p>使用 <code>&lt;activity&gt;</code> 元素中的 launchMode 属性。launchMode 属性可设为四种启动模式：</p>
 <ul>
 <li>standard<br>默认值。系统在启动 activity 的 task 中创建一个新的 activity 实例，并且将 intent 传送给它。该 activity 可以被实例化多次，各个实例可以属于不同的 task，一个 task 中也可以存在多个实例。</li>
 <li>singleTop<br>如果 activity 已经存在一个实例并位于当前 task 的栈顶，则系统会调用已有实例的 <code>onNewIntent()</code> 方法把 intent 传递给已有实例，而不是创建一个新的实例。activity 可以被实例化多次，各个实例可以属于不同的 task，一个 task 中可以存在多个实例（但仅当栈顶的实例不是该 activity 的）。</li>
 <li>singleTask<br>系统将创建一个新的 task，并把 activity 实例作为根放入其中。但是，如果 activity 已经在其它 task 中存在实例，则系统会通过调用其实例的 <code>onNewIntent()</code> 方法把 intent 传给已有实例，而不是再创建一个新实例。 此 activity 同一时刻只能存在一个实例。</li>
 <li>singleInstance<br>除了系统不会把其它 activity 放入当前实例所在的 task 之外，其它均与 singleTask 相同。 无论 activity 是在一个新的 task 中启动，还是位于其它已有的 task 中，用户总是可以用回退键返回到前一个 activity 中。 但是，如果你启动了一个启动模式设为singleTask的 activity，且有一个后台 task 中已存在实例的话，则这个后台 task 就会整个转到前台。 这时，当前的回退栈就包含了这个转入前台的 task 中所有的 activity，位置是在栈顶。</li>
 </ul>
-<h2 id="使用Intent标志"><a href="#使用Intent标志" class="headerlink" title="使用Intent标志"></a>使用Intent标志</h2><p>这个标志可以修改的默认模式包括：</p>
+<h3 id="使用Intent标志"><a href="#使用Intent标志" class="headerlink" title="使用Intent标志"></a>使用Intent标志</h3><p>这个标志可以修改的默认模式包括：</p>
 <ul>
 <li>FLAG_ACTIVITY_NEW_TASK<br>在新的 task 中启动 activity。如果要启动的 activity 已经运行于某 task 中，则那个 task 将调入前台，最后保存的状态也将恢复，activity 将在 <code>onNewIntent()</code> 中接收到这个新 intent。 这个过程与前一节所述的  singleTask 模式相同。</li>
 <li>FLAG_ACTIVITY_SINGLE_TOP<br>如果要启动的 activity 就是当前 activity（位于回退栈顶），则已存在的实例将接收到一个 <code>onNewIntent()</code> 调用，而不是创建一个 activity 的新实例。 这个过程与前一节所述的 singleTop 模式相同。</li>
