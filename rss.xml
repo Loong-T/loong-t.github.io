@@ -6,7 +6,7 @@
   <link href="/rss.xml" rel="self"/>
   
   <link href="http://nerd-is.in/"/>
-  <updated>2018-05-27T07:55:33.017Z</updated>
+  <updated>2019-04-16T09:11:56.000Z</updated>
   <id>http://nerd-is.in/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>实用的 Flutter 国际化指南</title>
+    <link href="http://nerd-is.in/2019/03/02/%E5%AE%9E%E7%94%A8%E7%9A%84%20Flutter%20%E5%9B%BD%E9%99%85%E5%8C%96%E6%8C%87%E5%8D%97/"/>
+    <id>http://nerd-is.in/2019/03/02/实用的 Flutter 国际化指南/</id>
+    <published>2019-03-01T16:00:00.000Z</published>
+    <updated>2019-04-16T09:11:56.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;作为一个 Android 开发者，Flutter 上来就让我把各类字符串写在 widget 里，其实我心里是拒绝的。硬编码是不可能硬编码的。国际化又不会，就是只能去看看文档，才能学点新姿势这样子。看了文档之后，觉得国际化这部分，还是有点麻烦的，我觉得有必要拎出来单独写写。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Flutter" scheme="http://nerd-is.in/tags/Flutter/"/>
+    
+      <category term="International" scheme="http://nerd-is.in/tags/International/"/>
+    
+  </entry>
   
   <entry>
     <title>通过 FileProvider 共享文件</title>
