@@ -9,7 +9,10 @@ jobs:
   pages:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout repository and submodules
+        uses: actions/checkout@v2
+        with:
+          submodules: recursive
       - name: Use Node.js 12.x
         uses: actions/setup-node@v1
         with:
@@ -23,8 +26,6 @@ jobs:
             ${{ runner.OS }}-npm-cache
       - name: Install Dependencies
         run: npm install
-      - name: Update submodule
-        run: npm run update-sub
       - name: Build
         run: npm run build
       - name: Deploy
